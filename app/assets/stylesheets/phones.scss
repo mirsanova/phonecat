@@ -119,10 +119,10 @@ h2 {
   text-align: center;
 }
 .phone-box:hover {
-  border : 1px solid grey;
+  border : 1px solid white;
   border-radius: 4px;
 }
-.fa{
+.fa-times{
   position: absolute;
   visibility: hidden;
   color: grey;
@@ -130,6 +130,6 @@ h2 {
   left: 205px;
 
 }
-.phone-box:hover .fa{
+.phone-box:hover .fa-times{
   visibility: visible;
 }
