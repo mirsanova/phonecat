@@ -1,3 +1,3 @@
 class Phone < ActiveRecord::Base
-	has_one :detail, dependent: :destroy
+	# has_one :detail, dependent: :destroy
 end

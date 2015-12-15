@@ -9,10 +9,10 @@ class PhonesController < ApplicationController
       format.html
     end
   end
-
-  def new
-    @phone = Phone.new(phone_params)
-  end
+  #
+  # def new
+  #   @phone = Phone.new(phone_params)
+  # end
 
   def create
     @phone = Phone.new(phone_params)
