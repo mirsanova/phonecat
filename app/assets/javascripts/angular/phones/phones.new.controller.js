@@ -6,9 +6,9 @@
       .controller('PhoneAddCtrl', PhoneAddCtrl);
       
 
-  PhoneAddCtrl.$inject = ['$scope','$resource', '$location', 'Phone'];   
+  PhoneAddCtrl.$inject = ['$scope','$resource', '$location', 'Phones'];   
 
-  function PhoneAddCtrl($scope, $resource, $location, Phone) {
+  function PhoneAddCtrl($scope, $resource, $location, Phones) {
 
 	  $scope.phone = {}
 	  $scope.save = function () {

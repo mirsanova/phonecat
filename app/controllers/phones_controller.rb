@@ -15,7 +15,7 @@ class PhonesController < ApplicationController
   end
 
   def create
-    @user = Phone.new(phone_params)
+    @phone = Phone.new(phone_params)
     if @phone.save
       render json: @phone.as_json, status: :ok
     else
