@@ -5,6 +5,9 @@
  * Style tweaks
  * --------------------------------------------------
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 html,
 body {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
@@ -108,4 +111,25 @@ h2 {
   display: inline-block;
   vertical-align: top;
   width: 30%;
+}
+.phone-box{
+  position: relative;
+  padding: 20px;
+  border : 1px solid white;
+  text-align: center;
+}
+.phone-box:hover {
+  border : 1px solid grey;
+  border-radius: 4px;
+}
+.fa{
+  position: absolute;
+  visibility: hidden;
+  color: grey;
+  top: 8px;
+  left: 205px;
+
+}
+.phone-box:hover .fa{
+  visibility: visible;
 }

@@ -6,19 +6,23 @@
 		<div class="jumbotron text-center">
 			<h1>Phonecat App</h1>
 		</div>
+		<a class="btn btn-primary" href="#/new">Добавить товар</a>
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-lg-4 item" ng-repeat="phone in phones | filter: search">
-				<div class="preview-img text-center">
-					<img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/>
-            <span class="label"
-									ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
-									ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
-              {{status}}
-            </span>
+				<div class="phone-box">
+					<i class="fa fa-times"></i>
+					<div class="preview-img text-center">
+						<img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/>
+	            <span class="label"
+										ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
+										ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
+	              {{status}}
+	            </span>
+					</div>
+					<h2>{{phone.name}}</h2>
+					<p>{{phone.snippet}}</p>
+					<p><a class="btn btn-default" href="#/phones/{{phone.id}}" role="button">View details &raquo;</a></p>
 				</div>
-				<h2>{{phone.name}}</h2>
-				<p>{{phone.snippet}}</p>
-				<p><a class="btn btn-default" href="#/phones/{{phone.id}}" role="button">View details &raquo;</a></p>
 			</div><!--/.col-sm-6.col-lg-4-->
 		</div>
 	</div><!--/.col-xs-12.col-sm-8-->
