@@ -119,7 +119,7 @@ h2 {
   text-align: center;
 }
 .phone-box:hover {
-  border : 1px solid white;
+  border : 1px solid grey;
   border-radius: 4px;
 }
 .fa-times{
@@ -135,4 +135,7 @@ h2 {
 }
 textarea {
     resize: none;
+}
+.btn{
+  margin-bottom: 20px;
 }

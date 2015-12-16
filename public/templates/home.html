@@ -13,17 +13,19 @@
 					<a href="" ng-click="deletePhone(phone.id)">
 						<i class="fa fa-times"></i>
 					</a>
-					<div class="preview-img text-center">
-						<!-- <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/>
+		<!-- 			<div class="preview-img text-center">
+						<img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/>
 	            <span class="label"
 										ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
 										ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
 	              {{status}}
-	            </span> -->
+	            </span>
+					</div> -->
+					<div class="preview-img text-center">
+						<img src="/assets/phones/dell-streak-7.0.jpg" alt="{{phone.name}}"/>
 					</div>
-					<h2>{{phone.name}}</h2>
-					<p>{{phone.description}}</p>
-					<p>{{phone.detail.characteristic}}</p>
+						<h2>{{phone.name}}</h2>
+						<p>{{phone.description}}</p>					
 					<p><a class="btn btn-default" href="#/phones/{{phone.id}}" role="button">View details &raquo;</a></p>
 				</div>
 			</div><!--/.col-sm-6.col-lg-4-->
