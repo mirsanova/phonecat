@@ -8,11 +8,13 @@ class PhonesController < ApplicationController
       format.json { render :json => @phone.as_json }
       format.html
     end
+  
   end
 
-  def new
-    @phone = Phone.new(phone_params)
-  end
+  # def new
+  # 	@phone = Phone.new(phone_params)
+  #   @phone.detail.build
+  # end
 
   def create
     @phone = Phone.new(phone_params)
@@ -32,10 +34,8 @@ class PhonesController < ApplicationController
 
   def phone_params
   	params['phone']['detail_attributes'] = params['phone']["detail"]
-    params.require(:phone).permit(:name, :description)
-
-    params.fetch(:phone, {}).permit(:name, :description, 
-                                   :detail_attributes => [:id, :characteristic, :phone_id])
+    params.require(:phone).permit(:name, :description, detail_attributes: [:id,:characteristic])
+    puts params['phone']['detail_attributes']
   end
 
   def get_phone

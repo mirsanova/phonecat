@@ -12,15 +12,16 @@
 				<div class="phone-box">
 					<i class="fa fa-times"></i>
 					<div class="preview-img text-center">
-						<img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/>
+						<!-- <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/>
 	            <span class="label"
 										ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
 										ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
 	              {{status}}
-	            </span>
+	            </span> -->
 					</div>
 					<h2>{{phone.name}}</h2>
-					<p>{{phone.snippet}}</p>
+					<p>{{phone.description}}</p>
+					<p>{{phone.detail.characteristic}}</p>
 					<p><a class="btn btn-default" href="#/phones/{{phone.id}}" role="button">View details &raquo;</a></p>
 				</div>
 			</div><!--/.col-sm-6.col-lg-4-->

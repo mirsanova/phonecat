@@ -10,7 +10,7 @@
 
   function PhoneAddCtrl($scope, $resource, $location, Phones) {
 
-	  $scope.phone = {}
+	  $scope.phone = { detail: [{ characteristic: '' }]}
 	  $scope.save = function () {
 
 		  if ($scope.phoneForm.$valid){
