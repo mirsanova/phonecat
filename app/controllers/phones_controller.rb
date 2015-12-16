@@ -1,5 +1,5 @@
 class PhonesController < ApplicationController
-	##before_action :get_phone, except: [:index, :create]
+	before_action :get_phone, except: [:index, :create]
 	respond_to :html, :json
 
 	def index
@@ -9,10 +9,10 @@ class PhonesController < ApplicationController
       format.html
     end
   end
-  #
-  # def new
-  #   @phone = Phone.new(phone_params)
-  # end
+
+  def new
+    @phone = Phone.new(phone_params)
+  end
 
   def create
     @phone = Phone.new(phone_params)
@@ -31,7 +31,11 @@ class PhonesController < ApplicationController
 	private
 
   def phone_params
+  	params['phone']['detail_attributes'] = params['phone']["detail"]
     params.require(:phone).permit(:name, :description)
+
+    params.fetch(:phone, {}).permit(:name, :description, 
+                                   :detail_attributes => [:id, :characteristic, :phone_id])
   end
 
   def get_phone

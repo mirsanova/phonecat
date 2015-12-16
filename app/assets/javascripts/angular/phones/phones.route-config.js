@@ -21,13 +21,13 @@ function config($routeProvide, $locationProvider){
       controller:'ContactCtrl'
     })
     .when('/phones/new', {
-      templateUrl:'/templates/new.html',
-      controller:'PhoneAddCtrl'
+      templateUrl: '/templates/new.html',
+      controller: 'PhoneAddCtrl'
     })
     .when('/phones/:phoneId', {
       templateUrl:'/templates/phone-detail.html',
       controller:'PhoneDetailCtrl'
-    })
+    })   
     .otherwise({
       redirectTo: '/'
     });
