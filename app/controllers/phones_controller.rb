@@ -29,13 +29,16 @@ class PhonesController < ApplicationController
     respond_with(@phone.as_json)
   end
 
+  def destroy
+    @phone.destroy
+    render json: {status: :ok}
+  end
 
 	private
 
   def phone_params
-  	params['phone']['detail_attributes'] = params['phone']["detail"]
-    params.require(:phone).permit(:name, :description, detail_attributes: [:id,:characteristic])
-    puts params['phone']['detail_attributes']
+  	params['phone']['detail_attributes'] = params['phone']['detail']
+    params.require(:phone).permit(:name, :description, detail_attributes: [:characteristic])
   end
 
   def get_phone

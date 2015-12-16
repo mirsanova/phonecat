@@ -5,6 +5,6 @@ class Phone < ActiveRecord::Base
 	accepts_nested_attributes_for :detail, allow_destroy: true, reject_if: :all_blank
 
 	def as_json(options={})
-    super(include: [:detail])
+    super( include: [:detail])
   end
 end

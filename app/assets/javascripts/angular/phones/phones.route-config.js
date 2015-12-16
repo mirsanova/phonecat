@@ -27,7 +27,7 @@ function config($routeProvide, $locationProvider){
     .when('/phones/:phoneId', {
       templateUrl:'/templates/phone-detail.html',
       controller:'PhoneDetailCtrl'
-    })   
+    })
     .otherwise({
       redirectTo: '/'
     });

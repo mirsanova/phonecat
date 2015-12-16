@@ -8,10 +8,12 @@
   PhoneDetailCtrl.$inject = ['$scope','$http', '$location', '$routeParams', 'Phone'];
 
   function PhoneDetailCtrl($scope, $http, $location, $routeParams, Phone) {
-    $scope.id = $routeParams.id;
+    $scope.phoneId = $routeParams.phoneId;
+    
 
-    Phone.get({id: $routeParams.id}, function(data) {
+    Phone.get({id: $routeParams.phoneId}, function(data) {
       $scope.phone = data;
+      
     });
 
   }

@@ -17,6 +17,15 @@
     function(data) {
       $scope.phones = data;
     });
+
+    $scope.deletePhone = function (phoneId) {
+      if (confirm("Are you sure you want to delete this phone?")){
+        Phone.delete({ id: phoneId }, function(){
+          $scope.phones = Phone.query();
+          $location.path('/');
+        });
+      }
+    };
   }
 
 })();
