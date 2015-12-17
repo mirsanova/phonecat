@@ -3,9 +3,9 @@ class PhonesController < ApplicationController
 	respond_to :html, :json
 
 	def index
-    @phone = Phone.all
+    @phones = Phone.all
     respond_with(@phones) do |format|
-      format.json { render :json => @phone.as_json }
+      format.json { render :json => @phones.as_json }
       format.html
     end
   

@@ -10,18 +10,32 @@
 	function Phones($http) {				
 
 		var obj = {};
+		var arr = [];
+		var res;
+		var data = [];
 
 		obj.getPhones = function(){
+			$http.get('/phones.json').then(function(response){
+				var phonesArr = {};
 
-			return $http.get('/phones.json');
+				phonesArr.phones = response.data;
+				console.log(1);
+				return phonesArr;
+			}).then(function(phonesArr){
+				data.phones = phonesArr;
+				console.log('2');
+			});
 
-			}
+			console.log(3);
+			
+			return data;
+		};
 
 		obj.getPhone = function(phoneId){
 
 			return $http.get('/phones/' + phoneId + '.json');
 
-		}
+		};
 
 		obj.addPhone = function (phone) {
 			return $http.post('/phones.json', phone).then(function (results) {

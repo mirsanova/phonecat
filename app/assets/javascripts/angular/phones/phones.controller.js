@@ -9,10 +9,15 @@
   PhoneListCtrl.$inject = ['$scope','Phones'];   
 
   function PhoneListCtrl($scope, Phones) {
+console.log('1');
+console.log(Phones.getPhones());
+  // Phones.getPhones().then(function(successResponse){
+  //     $scope.phones =  successResponse;
 
-    Phones.getPhones().then(function(data){
-      $scope.phones = data.data;
-    });
+  //     console.log(successResponse);
+  //   });
+
+     // $scope.phones = Phones.getPhones();
 
     $scope.justRemove = function(phone) {
 
