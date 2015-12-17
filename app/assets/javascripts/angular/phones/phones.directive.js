@@ -7,7 +7,6 @@
 
     function justRemove () {
         return function(scope, element, attributes) {
-                console.log("element removed");
                 element.bind("$destroy", function() {
                     console.log("element removed");
                 });
