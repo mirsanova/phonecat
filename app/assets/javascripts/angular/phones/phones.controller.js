@@ -6,24 +6,32 @@
       .controller('PhoneListCtrl', PhoneListCtrl);
       
 
-  PhoneListCtrl.$inject = ['$scope','$http', '$location', 'Phone'];   
+  PhoneListCtrl.$inject = ['$scope','Phones'];   
 
-  function PhoneListCtrl($scope, $http, $location, Phone) {
+  function PhoneListCtrl($scope, Phones) {
 
-    Phone.query(
+      
+        Phones.getPhones().then(function(data){
+        $scope.phones = data.data;
+     });
 
-    {phoneId: 'phones'}, 
 
-    function(data) {
-      $scope.phones = data;
-    });
 
-    $scope.justRemove = function(phone) {
-        Phone.delete({ id: phone.id }, function(){
-          $scope.phones = Phone.query();
-          $location.path('/');
-        });
-    };
+
+    // Phone.query(
+
+    // {phoneId: 'phones'}, 
+
+    // function(data) {
+    //   $scope.phones = data;
+    // });
+
+    // $scope.justRemove = function(phone) {
+    //     Phone.delete({ id: phone.id }, function(){
+    //       $scope.phones = Phone.query();
+    //       $location.path('/');
+    //     });
+    // };
 
     //$scope.deletePhone = function (phoneId) {
     //  if (confirm("Are you sure you want to delete this phone?")){
@@ -36,3 +44,4 @@
   }
 
 })();
+
