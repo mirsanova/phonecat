@@ -23,6 +23,12 @@ function Phones($http) {
 
 	}
 
+	obj.addPhone = function (phone) {
+		return $http.post('/phones.json', phone).then(function (results) {
+			return results;
+		});
+	};
+
 
 	return obj;
 
