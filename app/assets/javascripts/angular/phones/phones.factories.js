@@ -19,7 +19,7 @@ function Phones($http) {
 
 	obj.getPhone = function(phoneId){
 
-		return $http.get('phones?id=' + phoneId + '.json');
+		return $http.get('/phones/' + phoneId + '.json');
 
 	}
 

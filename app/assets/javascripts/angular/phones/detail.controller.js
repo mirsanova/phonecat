@@ -5,18 +5,20 @@
       .module('phonecatApp')
       .controller('PhoneDetailCtrl', PhoneDetailCtrl);
 
-  PhoneDetailCtrl.$inject = ['$scope', 'Phones'];
+  PhoneDetailCtrl.$inject = ['$scope', 'Phones', '$routeParams'];
 
-  function PhoneDetailCtrl($scope, Phones) {
+  function PhoneDetailCtrl($scope, Phones, $routeParams) {
 
-    
+     console.log($routeParams.phoneId);
 
-    Phones.getPhone().then(function(data){
-      $scope.phone = data;
+    Phones.getPhone($routeParams.phoneId).then(function(data){
+      $scope.phone = data.data;
       console.log($scope.phone);
     });
 
-
+ 
+        // Phones.getPhones().then(function(data){
+        // $scope.phones = data.data;
 
     // $scope.phoneId = $routeParams.phoneId;
     
