@@ -36,32 +36,26 @@
 
 		}
    	
-   	function addPhone() {
-		 	$http.post('/phones.json', {}).then(function (data) {
+   	function addPhone(phone) {
+		 	$http.post('/phones.json', phone).then(function (data) {
 		 		data.phones = data.data;
-		 		console.log($routeParams);
+		 		console.log(data.phones);
 		 	});
 		};
 
-
-		// obj.addPhone = function (phone) {
-		// 	return $http.post('/phones.json', phone).then(function (results) {
-		// 		return results;
-		// 	});
-		// };
-
-		// obj.deletePhone = function (id) {
-		// 	return $http.delete('/phones/' + id + '.json').then(function (status) {
-		// 		return status.data;
-		// 	});
-		// };
-
+		function deletePhone(phone) {
+		 	return $http.delete('/phones/' + phone.id + '.json').then(function (status) {		 		
+		 		return status.data;
+		 	});
+		};
+		
 		return {
 			getPhones: getPhones,
 			setPhones: setPhones,
 			getPhone: getPhone,
 			setPhone: setPhone,
-			addPhone: addPhone
+			addPhone: addPhone,
+			deletePhone: deletePhone
 		}									
 
 	}

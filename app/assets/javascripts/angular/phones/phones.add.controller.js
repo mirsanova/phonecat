@@ -10,15 +10,13 @@
 
   function PhoneAddCtrl($scope, $resource, $location, Phones) {
 
-	  $scope.phones = {}
+	  // $scope.phones = {}
 
 		  $scope.save = function () {
 
 			  if ($scope.phoneForm.$valid){
 			  	$location.path('/');
 			    Phones.addPhone();
-			    
-			    // $scope.phones = Phones.getPhone();
 			  }
 		  }	  
   }

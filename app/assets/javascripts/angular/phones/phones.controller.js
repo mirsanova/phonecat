@@ -10,22 +10,13 @@
 
   function PhoneListCtrl($scope, Phones) {
 
-    // Phones.getPhones().then(function(data){
-    //   $scope.phones = data.data;
-    // });
-    Phones.setPhones();
+    $scope.justRemove = function(phone) {
+      Phones.deletePhone(phone);
+      Phones.setPhones();      
+    }
+
+    Phones.setPhones(); 
     $scope.phones = Phones.getPhones();
- 
-
-    // $scope.justRemove = function(phone) {
-
-    //   Phones.deletePhone(phone.id);
-    //   Phones.getPhones().then(function(data){
-
-    //     $scope.phones = data.data;
-        
-    //   });   
-    // }
    
   }
 
