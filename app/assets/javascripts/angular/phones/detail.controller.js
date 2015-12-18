@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
   'use strict';
 
   angular
@@ -9,12 +9,9 @@
 
   function PhoneDetailCtrl($scope, Phones, $routeParams) {     
 
-    Phones.getPhone($routeParams.phoneId).then(function(data){
-
-      $scope.phone = data.data;
-
-    });
+    Phones.setPhone();
+    $scope.phones = Phones.getPhone();
   }
 
-})();
+})(window.angular);
 

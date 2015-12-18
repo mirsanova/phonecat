@@ -1,55 +1,68 @@
-(function() {
+(function(angular) {
 	'use strict';
 
 	angular
 	  .module('phonecatApp')
 	  .factory('Phones', Phones);
 
-	Phones.$inject = ['$http'];
+	Phones.$inject = ['$http', '$routeParams'];
 
-	function Phones($http) {				
+	function Phones($http, $routeParams) {				
 
-		var obj = {};
-		var arr = [];
-		var res;
-		var data = [];
+		var data = {
+			phones: []
+		};
 
-		obj.getPhones = function(){
+		function setPhones(){
 			$http.get('/phones.json').then(function(response){
-				var phonesArr = {};
-
-				phonesArr.phones = response.data;
-				console.log(1);
-				return phonesArr;
-			}).then(function(phonesArr){
-				data.phones = phonesArr;
-				console.log('2');
+				data.phones = response.data;
 			});
-
-			console.log(3);
 			
+		}
+
+		function getPhones(){
 			return data;
+		}
+
+		function setPhone(){
+			$http.get('/phones/' + $routeParams.phoneId + '.json').then(function(response){
+				data.phones = response.data;
+			});			
+		}
+
+		function getPhone(){
+
+			return data;
+
+		}
+   	
+   	function addPhone() {
+		 	$http.post('/phones.json', {}).then(function (data) {
+		 		data.phones = data.data;
+		 		console.log($routeParams);
+		 	});
 		};
 
-		obj.getPhone = function(phoneId){
 
-			return $http.get('/phones/' + phoneId + '.json');
+		// obj.addPhone = function (phone) {
+		// 	return $http.post('/phones.json', phone).then(function (results) {
+		// 		return results;
+		// 	});
+		// };
 
-		};
+		// obj.deletePhone = function (id) {
+		// 	return $http.delete('/phones/' + id + '.json').then(function (status) {
+		// 		return status.data;
+		// 	});
+		// };
 
-		obj.addPhone = function (phone) {
-			return $http.post('/phones.json', phone).then(function (results) {
-				return results;
-			});
-		};
-
-		obj.deletePhone = function (id) {
-			return $http.delete('/phones/' + id + '.json').then(function (status) {
-				return status.data;
-			});
-		};
-
-		return obj;									
+		return {
+			getPhones: getPhones,
+			setPhones: setPhones,
+			getPhone: getPhone,
+			setPhone: setPhone,
+			addPhone: addPhone
+		}									
 
 	}
-})();
+})(window.angular);

@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
   'use strict';
 
   angular
@@ -9,27 +9,25 @@
   PhoneListCtrl.$inject = ['$scope','Phones'];   
 
   function PhoneListCtrl($scope, Phones) {
-console.log('1');
-console.log(Phones.getPhones());
-  // Phones.getPhones().then(function(successResponse){
-  //     $scope.phones =  successResponse;
 
-  //     console.log(successResponse);
-  //   });
+    // Phones.getPhones().then(function(data){
+    //   $scope.phones = data.data;
+    // });
+    Phones.setPhones();
+    $scope.phones = Phones.getPhones();
+ 
 
-     // $scope.phones = Phones.getPhones();
+    // $scope.justRemove = function(phone) {
 
-    $scope.justRemove = function(phone) {
+    //   Phones.deletePhone(phone.id);
+    //   Phones.getPhones().then(function(data){
 
-      Phones.deletePhone(phone.id);
-      Phones.getPhones().then(function(data){
-
-        $scope.phones = data.data;
+    //     $scope.phones = data.data;
         
-      });   
-    }
+    //   });   
+    // }
    
   }
 
-})();
+})(window.angular);
 
