@@ -10,9 +10,12 @@
 
   function PhoneListCtrl($scope, Phones) {
 
-    // $scope.justRemove = function(phone) {
-    //   Phones.deletePhone(phone);           
-    // }
+    $scope.justRemove = function(phone) {
+      console.log('1');
+        Phones.deletePhone(phone);
+        $scope.phones = Phones.getPhones();
+        console.log($scope.phones );
+    };
 
     Phones.setPhones(); 
     $scope.phones = Phones.getPhones();

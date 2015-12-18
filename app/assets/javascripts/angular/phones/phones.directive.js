@@ -8,21 +8,14 @@
     return function(scope, element, attributes) {
 
     	var box = document.getElementById( 'phone-box' );
-    	var times;
-
-    	element.bind("mouseover", function() {
-        element.prepend('<a href="" id="times"><i class="fa fa-times" ></i></a>');
-        times = box.children[0];               
-                       
-      });
-      element.bind("mouseleave", function(element) {
-      	var el = document.getElementById( 'times' );
-      	// element.parentNode.removeChild( el );
-      parent = element;
-        // element.remove(times);
-        parent.removeChild();
       
-                       
+    	element.bind("mouseenter", function() {
+        element.prepend('<a href="" id="delete-item-times" ng-click="justRemove(phone)"><i class="fa fa-times" ></i></a>');
+      });
+
+      element.bind("mouseleave", function(scope, elt, attrs) {
+      	var el = document.getElementById( 'delete-item-times' );
+            el.remove();  
       });
     }
 } })();

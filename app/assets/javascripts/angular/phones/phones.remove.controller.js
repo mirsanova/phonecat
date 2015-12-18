@@ -10,11 +10,12 @@
 
   function PhoneRemoveCtrl($scope, $http, $location, Phone) {
     $scope.justRemove = function(phone) {
-        Phone.delete({ id: phone.id }, function(){
-          $scope.phones = Phone.query();
-          $location.path('/');
-        });
+      console.log('1');
+        //Phone.deletePhone(phone);
+        // $scope.phones = Phones.getPhones();
+        console.log($scope.phones );
     };
+  };
 
     //$scope.deletePhone = function (phoneId) {
     //  if (confirm("Are you sure you want to delete this phone?")){
@@ -24,6 +25,6 @@
     //    });
     //  }
     //};
-  }
+  
 
 })();
