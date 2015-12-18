@@ -8,16 +8,12 @@
 	Phones.$inject = ['$http', '$routeParams'];
 
 	function Phones($http, $routeParams) {				
-
-		var data = {
-			phones: []
-		};
+		var data = {};
 
 		function setPhones(){
 			$http.get('/phones.json').then(function(response){
 				data.phones = response.data;
 			});
-			
 		}
 
 		function getPhones(){
@@ -26,20 +22,17 @@
 
 		function setPhone(){
 			$http.get('/phones/' + $routeParams.phoneId + '.json').then(function(response){
-				data.phones = response.data;
+				data.phone = response.data;
 			});			
 		}
 
 		function getPhone(){
-
 			return data;
-
 		}
    	
-   	function addPhone(phone) {
+   		function addPhone(phone) {
 		 	$http.post('/phones.json', phone).then(function (data) {
 		 		data.phones = data.data;
-		 		console.log(data.phones);
 		 	});
 		};
 
@@ -57,6 +50,5 @@
 			addPhone: addPhone,
 			deletePhone: deletePhone
 		}									
-
 	}
 })(window.angular);
