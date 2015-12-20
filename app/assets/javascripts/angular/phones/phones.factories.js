@@ -30,7 +30,7 @@
 			return data;
 		}
    	
-   	function addPhone(phone) {
+   	    function addPhone(phone) {
 		 	$http.post('/phones.json', phone).then(function (data) {
 		 		data.phones = data.data;
 		 	});
@@ -38,8 +38,9 @@
 
 		function deletePhone(phone) {
 		 	return $http.delete('/phones/' + phone.id + '.json').then(function (status) {	
-		 		console.log(status.data)	 		
-		 		return setPhones();
+		 		console.log(status.data);
+                setPhones();
+		 		return getPhones();
 		 	});
 		};
 		

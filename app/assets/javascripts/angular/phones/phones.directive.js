@@ -4,17 +4,21 @@
     .module('phonecatApp')
     .directive('justRemove', justRemove);
 
-  function justRemove () {
-    return function(scope, element, attributes) {
+    justRemove.$inject = ['Phones'];
 
-    	var box = document.getElementById( 'phone-box' );
-      
+    function justRemove (Phones) {
+      return function(scope, element, attributes) {
+
     	element.bind("mouseenter", function() {
-        element.prepend('<a href="" id="delete-item-times" ng-click="justRemove(phone)"><i class="fa fa-times" ></i></a>');
-      });
+            element.prepend('<a href="" id="delete-item-times"><i class="fa fa-times" ></i></a>');
+            $( '#delete-item-times').click(function(e,phone){
+               e.preventDefault();
+               Phones.deletePhone(scope.phone);
+            });
+        });
 
-      element.bind("mouseleave", function(scope, elt, attrs) {
-      	var el = document.getElementById( 'delete-item-times' );
+      element.bind("mouseleave", function(scope, element, attrs) {
+      	var el = $( '#delete-item-times' );
             el.remove();  
       });
     }
