@@ -28,6 +28,10 @@ function config($routeProvide, $locationProvider){
       templateUrl:'/templates/phone-detail.html',
       controller:'PhoneDetailCtrl'
     })
+    .when('/phones/edit/:phoneId', {
+      templateUrl:'/templates/edit.html',
+      controller:'PhoneEditCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

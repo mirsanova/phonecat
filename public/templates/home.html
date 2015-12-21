@@ -6,7 +6,7 @@
 		<div class="jumbotron text-center">
 			<h1>Phonecat App</h1>
 		</div>
-		<a class="btn btn-success" href="#/phones/new">Добавить товар</a>
+		<a class="btn btn-success" href="#/phones/new">Добавить товар</a>		
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-lg-4 item" ng-repeat="phone in phones.phones | filter: search">
 
@@ -25,7 +25,10 @@
 						<h2>{{phone.name}}</h2>
 						<p>{{phone.description}}</p>					
 					<p><a class="btn btn-default" href="#/phones/{{phone.id}}" role="button">View details &raquo;</a></p>
+
 				</div>
+				<br>
+				<p><a class="btn btn-primary" href="#/phones/edit/{{phone.id}}">Редактировать</a></p>
 			</div><!--/.col-sm-6.col-lg-4-->
 		</div>
 	</div><!--/.col-xs-12.col-sm-8-->

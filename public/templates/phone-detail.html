@@ -11,8 +11,8 @@
   </div>
   <div class="col-xs-12 col-sm-8">
     <h1>{{phones.phone.name}}</h1>
-    <p>{{phones.phone.description}}</p>
+    <p>Описание: {{phones.phone.description}}</p>
     <hr>
-    <p>{{phones.phone.detail.characteristic}}</p>
-    <p>{{phones.phone.status}}</p>    
+    <p>Характеристики: {{phones.phone.detail.characteristic}}</p>
+    <p>Наличие: {{phones.phone.status ? 'есть в наличии' : 'под заказ'}}</p>    
 </div>

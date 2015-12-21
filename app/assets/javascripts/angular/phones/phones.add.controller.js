@@ -8,17 +8,15 @@
 
   PhoneAddCtrl.$inject = ['$scope','$resource', '$location', 'Phones'];   
 
-  function PhoneAddCtrl($scope, $resource, $location, Phones) {
+  function PhoneAddCtrl($scope, $resource, $location, Phones) {  
 
-	  // $scope.phones = {}
+	  $scope.save = function () {
 
-		  $scope.save = function () {
-
-			  if ($scope.phoneForm.$valid){
-			  	$location.path('/');
-			    Phones.addPhone();
-			  }
-		  }	  
+		  if ($scope.phoneForm.$valid){
+		  	$location.path('/');
+		    Phones.addPhone();
+		  }
+	  }	  
   }
 
 })();

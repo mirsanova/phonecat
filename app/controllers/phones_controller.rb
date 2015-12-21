@@ -34,21 +34,22 @@ class PhonesController < ApplicationController
     render json: {status: :ok}
   end
 
-  def update_status
+  def update
     @phone = Phone.find(params[:id])
-    @phone.update_attributes(:status => params[:status])
 
-    respond_to do |format|
-        format.html
-        format.json { render :json => phone.status }
+    if @phone.update_attributes(phone_params)
+      render json: @phone.as_json, status: :ok
+    else
+      render json: {phone: @phone.errors, status: :unprocessable_entity}
     end
+    
   end
 
 	private
 
   def phone_params
   	params['phone']['detail_attributes'] = params['phone']['detail']
-    params.require(:phone).permit(:name, :description, detail_attributes: [:characteristic])
+    params.require(:phone).permit(:name, :description, :status, detail_attributes: [:characteristic])
   end
 
   def get_phone

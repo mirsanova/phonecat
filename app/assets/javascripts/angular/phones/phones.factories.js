@@ -38,14 +38,26 @@
 		 	});
 		};
 
+		function updatePhone(phone) {
+		 	$http.put('/phones/edit'+ phone.id + '.json', phone).then(function (status) {
+		 		// data.phones = data.data;
+		 		// console.log(data.phones);
+		 		var original = phone.data;
+					original._id = phoneId;
+					phone = angular.copy(original);
+					phone._id = phoneId;
+		 	});
+		};
+
 		function deletePhone(phone) {
 		 	return $http.delete('/phones/' + phone.id + '.json').then(function (status) {	
 		 		
-		 		var box = data.phones;	
-		 		var index = box.indexOf(phone);	
-		 	  data = box.splice(index, 1); 	 
+		 		var box = data.phones;
+		 		var index = box.indexOf(phone);
+		 	  box.splice(index, 1);
 
 		 	  return data;
+
 		 	});
 		};
 		
@@ -55,6 +67,7 @@
 			getPhone: getPhone,
 			setPhone: setPhone,
 			addPhone: addPhone,
+			updatePhone: updatePhone,
 			deletePhone: deletePhone
 		}									
 	}
