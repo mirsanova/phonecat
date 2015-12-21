@@ -12,13 +12,10 @@
 
   	Phones.setPhone();
     $scope.phones = Phones.getPhone();
-    console.log($scope.phones);
     $scope.update = function(){    	
       if ($scope.phoneForm.$valid){
       	Phones.updatePhone($scope.phones);
         $location.path('/');
-         
-         // console.log($scope.phones);
       }
     }; 
   }

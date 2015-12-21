@@ -34,14 +34,13 @@
    	
    	function addPhone(phone) {
 		 	$http.post('/phones.json', phone).then(function (data) {
-		 		data.phones = data.data;
+		 		data.phone = data.data;
 		 	});
 		};
 
 		 function updatePhone(phone) {
-		 	$http.put('/phones/edit/'+ $routeParams.phoneId + '.json', phone).then(function (status) {
-		 		data.phones = data.data;
-		 		console.log(data.phones);
+		 	$http.put('/phones/'+ $routeParams.phoneId + '.json', phone).then(function (data) {
+		 		data.phone = data.data;
 		 	});
 		};
 
