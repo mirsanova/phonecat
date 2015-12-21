@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
   'use strict';
   angular
     .module('phonecatApp')
@@ -7,19 +7,20 @@
     justRemove.$inject = ['Phones'];
 
     function justRemove (Phones) {
+
       return function(scope, element, attributes) {
 
     	element.bind("mouseenter", function() {
-            element.prepend('<a href="" id="delete-item-times"><i class="fa fa-times" ></i></a>');
-            $( '#delete-item-times').click(function(e,phone){
-               e.preventDefault();
-               Phones.deletePhone(scope.phone);
-            });
+        element.prepend('<a href="" id="delete-item-times"><i class="fa fa-times" ></i></a>');
+        $( '#delete-item-times').click(function(e,phone){
+          e.preventDefault();
+          Phones.deletePhone(scope.phone);
         });
+      });
 
       element.bind("mouseleave", function(scope, element, attrs) {
-      	var el = $( '#delete-item-times' );
-            el.remove();  
+      	$( '#delete-item-times' ).remove();  
       });
     }
-} })();
+  } 
+})(window.angular);
