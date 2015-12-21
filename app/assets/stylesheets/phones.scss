@@ -139,3 +139,14 @@ textarea {
 .btn{
   margin-bottom: 20px;
 }
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.2); /* IE */
+  -moz-transform: scale(1.2); /* FF */
+  -webkit-transform: scale(1.2); /* Safari and Chrome */
+  -o-transform: scale(1.2); /* Opera */
+  position: absolute;
+  top: 6px;
+  left: 18px;     
+}

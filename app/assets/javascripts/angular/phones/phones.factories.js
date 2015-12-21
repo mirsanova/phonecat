@@ -39,26 +39,14 @@
 		};
 
 		function deletePhone(phone) {
-		 	//return $http.delete('/phones/' + phone.id + '.json').then(function (status) {	
-		 		//console.log(status.data);
+		 	return $http.delete('/phones/' + phone.id + '.json').then(function (status) {	
 		 		
-		 		var box = data.phones;
-		 		var id = phone.id;
+		 		var box = data.phones;	
+		 		var index = box.indexOf(phone);	
+		 	  data = box.splice(index, 1); 	 
 
-
-		 		console.log(box);
-		 		console.log(box.indexOf(box));
-
-
-		 		// data.phones = box.splice(box[0], 1);
-		 		// console.log(data.phones);		 	
-		 		// return data;
-		 		// delete box[phone.id];
-
-		 		
-
-
-		 	//});
+		 	  return data;
+		 	});
 		};
 		
 		return {

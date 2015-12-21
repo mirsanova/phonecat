@@ -34,6 +34,16 @@ class PhonesController < ApplicationController
     render json: {status: :ok}
   end
 
+  def update_status
+    @phone = Phone.find(params[:id])
+    @phone.update_attributes(:status => params[:status])
+
+    respond_to do |format|
+        format.html
+        format.json { render :json => phone.status }
+    end
+  end
+
 	private
 
   def phone_params
