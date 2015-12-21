@@ -16,9 +16,11 @@
     //    $scope.phones = Phones.getPhones();
     //    console.log($scope.phones );
     //};
-
+    //$scope.buttonText = (customerID > 0) ? 'Update Customer' : 'Add New Customer';
+    //ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
     Phones.setPhones(); 
     $scope.phones = Phones.getPhones();
+    console.log($scope.phones.data);
    
   }
 

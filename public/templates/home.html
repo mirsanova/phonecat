@@ -9,13 +9,13 @@
 		<a class="btn btn-success" href="#/phones/new">Добавить товар</a>		
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-lg-4 item" ng-repeat="phone in phones.phones | filter: search">
-
 				<div id="phone-box" class="phone-box" just-remove>
+					<a href="#/phones/edit/{{phone.id}}"><i class="fa fa-pencil"></i></a>
 					<!-- <div class="preview-img text-center"> -->
 						<!-- <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/> -->
 	            <span class="label"
-										ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
-										ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
+								ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
+								ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
 	              {{status}}
 	            </span>
 					<!-- </div> -->
@@ -25,13 +25,10 @@
 						<h2>{{phone.name}}</h2>
 						<p>{{phone.description}}</p>					
 					<p><a class="btn btn-default" href="#/phones/{{phone.id}}" role="button">View details &raquo;</a></p>
-
-				</div>
-				<br>
-				<p><a class="btn btn-primary" href="#/phones/edit/{{phone.id}}">Редактировать</a></p>
-			</div><!--/.col-sm-6.col-lg-4-->
+				</div>				
+			</div>
 		</div>
-	</div><!--/.col-xs-12.col-sm-8-->
+	</div>
 	<div class="col-xs-6 col-sm-4 sidebar-offcanvas" id="sidebar">
 		<h3 class="text-center">Фильтр телефонов</h3>
 		<div class="list-group">
@@ -41,5 +38,5 @@
 				</form>
 			</div>
 		</div>
-	</div><!--/.sidebar-offcanvas-->
-</div><!--/row-->
+	</div>
+</div>

@@ -122,6 +122,13 @@ h2 {
   border : 1px solid grey;
   border-radius: 4px;
 }
+.fa-pencil{
+  position: absolute;
+  visibility: hidden;
+  color: grey;
+  top: 8px;
+  left: 12px;
+}
 .fa-times{
   position: absolute;
   visibility: hidden;
@@ -130,7 +137,7 @@ h2 {
   left: 205px;
 
 }
-.phone-box:hover .fa-times{
+.phone-box:hover .fa{
   visibility: visible;
 }
 textarea {
