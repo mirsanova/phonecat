@@ -6,5 +6,5 @@ class Phone < ActiveRecord::Base
 
 	def as_json(options={})
     super( include: [:detail])
-  end
+	end
 end

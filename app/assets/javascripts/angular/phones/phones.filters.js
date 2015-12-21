@@ -1,16 +1,15 @@
-// (function() {
+ (function() {
 
-// 	'use strict';
+ 	'use strict';
 
-// 	angular
-// 	  .module('phonecatApp')
-// 	  .filter('checkmark', checkmark);
+ 	angular
+ 	  .module('phonecatApp')
+ 	  .filter('statusDescription', statusDescription);
 
-// 	function checkmark() {
-// 	  return function(input) {
+ 	function statusDescription() {
+ 	  return function(status) {
+ 	    return status ? 'Есть в наличии' : 'Под заказ';
+      }
+ 	}
 
-// 	    return input ? '\u2713' : '\u2718';
-// 		}
-// 	}
-
-// })();
+ })();

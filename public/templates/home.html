@@ -13,10 +13,8 @@
 					<a href="#/phones/edit/{{phone.id}}"><i class="fa fa-pencil"></i></a>
 					<!-- <div class="preview-img text-center"> -->
 						<!-- <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/> -->
-	            <span class="label"
-								ng-init="status = phone.status ? 'Есть в наличии' : 'Под заказ'"
-								ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
-	              {{status}}
+	            <span class="label" ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
+					  			{{phone.status | statusDescription}}
 	            </span>
 					<!-- </div> -->
 					<div class="preview-img text-center">
