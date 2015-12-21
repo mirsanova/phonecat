@@ -38,14 +38,10 @@
 		 	});
 		};
 
-		function updatePhone(phone) {
-		 	$http.put('/phones/edit'+ phone.id + '.json', phone).then(function (status) {
-		 		// data.phones = data.data;
-		 		// console.log(data.phones);
-		 		var original = phone.data;
-					original._id = phoneId;
-					phone = angular.copy(original);
-					phone._id = phoneId;
+		 function updatePhone(phone) {
+		 	$http.put('/phones/edit/'+ $routeParams.phoneId + '.json', phone).then(function (status) {
+		 		data.phones = data.data;
+		 		console.log(data.phones);
 		 	});
 		};
 

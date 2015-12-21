@@ -6,14 +6,19 @@
       .controller('PhoneEditCtrl', PhoneEditCtrl);
       
 
-  PhoneEditCtrl.$inject = ['$scope','$resource', '$location', 'Phones'];   
+  PhoneEditCtrl.$inject = ['$scope','$resource', '$location', 'Phones', '$routeParams'];   
 
-  function PhoneEditCtrl($scope, $resource, $location, Phones) {
-  	
+  function PhoneEditCtrl($scope, $resource, $location, Phones, $routeParams) {
+
+  	Phones.setPhone();
+    $scope.phones = Phones.getPhone();
+    console.log($scope.phones);
     $scope.update = function(){    	
       if ($scope.phoneForm.$valid){
+      	Phones.updatePhone($scope.phones);
         $location.path('/');
-         Phones.updatePhone(id, phone);
+         
+         // console.log($scope.phones);
       }
     }; 
   }

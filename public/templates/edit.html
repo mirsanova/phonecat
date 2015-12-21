@@ -1,6 +1,38 @@
 <div class="col-md-10">
     <form class="tab-pane active form-horizontal" id="first" name="phoneForm" novalidate ng-submit="update()">
         <h3 class="block">Редактирование товара</h3>
-        <div ng-include src="'/templates/_form.html'"></div>
+        <div class="form-group" ng-class="{'has-error' : submitted && phoneForm.name.$invalid}">
+    <label class="control-label col-md-3">Название <span class="required">* </span> </label>
+    <div class="col-md-4">
+        <input type="text" name="name" class="form-control" ng-model="phones.phone.name" required placeholder="название товара"/>
+    </div>
+    <p ng-show=" submitted && phoneForm.name.$invalid" class="help-block">Данное поле обязательно для заполнения</p>
+		</div>
+		<div class="form-group" ng-class="{'has-error' : submitted && phoneForm.description.$invalid}">
+		    <label class="control-label col-md-3">Описание товара <span class="required">* </span> </label>
+		    <div class="col-md-4">
+		        <textarea type="text" name="description" class="form-control" ng-model="phones.phone.description" rows="7" required placeholder="описание"></textarea>
+		    </div>
+		    <p ng-show=" submitted && phoneForm.description.$invalid" class="help-block">Данное поле обязательно для заполнения</p>
+		</div>
+		<div class="form-group" ng-class="{'has-error' : submitted && phoneForm.characteristic.$invalid}">
+		    <label class="control-label col-md-3">Характеристики товара <span class="required">* </span> </label>
+		    <div class="col-md-4">
+		        <textarea type="text" name="characteristic" class="form-control" ng-model="phones.phone.detail.characteristic" rows="7" required placeholder="Характеристики товара"></textarea>
+		    </div> 
+		    <p ng-show=" submitted && phoneForm.characteristic.$invalid" class="help-block">Данное поле обязательно для заполнения</p>   
+		</div>
+		<div class="form-group">
+		    <label class="control-label col-md-3">Наличие товара <span class="required">* </span></label>
+		    <div class="col-md-3">
+		        <input type="checkbox" name="status" ng-model="phones.phone.status" />
+		    </div>
+		</div>
+		<div class="form-group">
+		    <div class="col-md-8">
+		        <a class="btn btn-default" href="/#/"> Назад</a>
+		        <button type="submit" class="btn btn-primary" ng-click="submitted=true">Редактировать</button>
+		    </div>
+		</div>
     </form>
 </div>
