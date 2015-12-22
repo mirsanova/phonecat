@@ -14,7 +14,7 @@
 					<!-- <div class="preview-img text-center"> -->
 						<!-- <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/> -->
 	            <span class="label" ng-class="{'label-success':phone.status, 'label-warning': !phone.status}">
-					  			{{phone.status | statusDescription}}
+					  		{{phone.status ? 'В наличии' : 'Под заказ' }}
 	            </span>
 					<!-- </div> -->
 					<div class="preview-img text-center">

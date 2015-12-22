@@ -9,9 +9,8 @@
   PhoneListCtrl.$inject = ['$scope','Phones'];   
 
   function PhoneListCtrl($scope, Phones) {
-
-
-    Phones.setPhones();
+  	
+    Phones.setPhones();    
     $scope.phones = Phones.getPhones();
   }
 

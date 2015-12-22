@@ -1,15 +1,15 @@
- (function() {
+// (function() {
 
- 	'use strict';
+// 	'use strict';
 
- 	angular
- 	  .module('phonecatApp')
- 	  .filter('statusDescription', statusDescription);
+// 	angular
+// 	  .module('phonecatApp')
+// 	  .filter('statusDescription', statusDescription);
 
- 	function statusDescription() {
- 	  return function(status) {
- 	    return status ? 'Есть в наличии' : 'Под заказ';
-      }
- 	}
+// 	function statusDescription() {
+// 	  return function(status) {
+// 	    return status ? 'Есть в наличии' : 'Под заказ';
+//      }
+// 	}
 
- })();
+// })();

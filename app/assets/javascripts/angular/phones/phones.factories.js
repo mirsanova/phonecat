@@ -5,53 +5,61 @@
 	  .module('phonecatApp')
 	  .factory('Phones', Phones);
 
-	Phones.$inject = ['$http', '$routeParams'];
+	Phones.$inject = ['$q', '$http', '$routeParams'];
 
-	function Phones($http, $routeParams) {				
-		var data = {
+	function Phones($q, $http, $routeParams) {
+	var self = this;	
+		self.data = {
 			phones: []
 		};
+		// self.current = null;
 
 		function setPhones(){
+
 			$http.get('/phones.json').then(function(response){
-				data.phones = response.data;
+				self.data.phones = response.data;
 			});
 		}
 
 		function getPhones(){
-			return data;
+			return self.data;
 		}
 
 		function setPhone(){
+			var deferred = $q.defer();
+
 			$http.get('/phones/' + $routeParams.phoneId + '.json').then(function(response){
-				data.phone = response.data;
+				self.data.phone = response.data;
+				deferred.resolve(response);
 			});			
+
+			return deferred.promise;
 		}
 
 		function getPhone(){
-			return data;
+			return self.data.phone;
 		}
    	
    	function addPhone(phone) {
 		 	$http.post('/phones.json', phone).then(function (data) {
-		 		data.phone = data.data;
+		 		self.data.phone = data.data;
 		 	});
 		};
 
 		 function updatePhone(phone) {
 		 	$http.put('/phones/'+ $routeParams.phoneId + '.json', phone).then(function (data) {
-		 		data.phone = data.data;
+		 		self.data.phone = data.data;
 		 	});
 		};
 
 		function deletePhone(phone) {
 		 	return $http.delete('/phones/' + phone.id + '.json').then(function (status) {	
 		 		
-		 		var box = data.phones;
+		 		var box = self.data.phones;
 		 		var index = box.indexOf(phone);
 		 	  box.splice(index, 1);
 
-		 	  return data;
+		 	  return self.data;
 
 		 	});
 		};
