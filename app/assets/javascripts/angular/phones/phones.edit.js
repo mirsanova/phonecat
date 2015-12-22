@@ -16,6 +16,7 @@
     // Phones.setPhone();
     $scope.update = function(){    	
       if ($scope.phoneForm.$valid){
+              
       	Phones.updatePhone($scope.phones);
         $location.path('/');
       }

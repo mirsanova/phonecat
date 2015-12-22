@@ -15,13 +15,17 @@
 		// self.current = null;
 
 		function setPhones(){
+			var deferred = $q.defer();
 
 			$http.get('/phones.json').then(function(response){
 				self.data.phones = response.data;
+				deferred.resolve(response);
 			});
+			return deferred.promise;
 		}
 
 		function getPhones(){
+			console.log(self.data.phones);
 			return self.data;
 		}
 
