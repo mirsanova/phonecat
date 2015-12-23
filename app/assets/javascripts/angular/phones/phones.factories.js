@@ -16,10 +16,14 @@
 		function setPhones(){
 			$http.get('/phones.json').then(function(response){
 				self.data.phones = response.data;
+				console.log('setPhones: ');
+				console.log(self.data.phones);
 			});
 		}
 
 		function getPhones(){
+			console.log('getPhones: ');
+			console.log(self.data);
 			return self.data;
 		}
 
@@ -34,6 +38,7 @@
 		}
 
 		function getPhone(){
+
 			return self.data.phone;
 		}
    	
@@ -43,12 +48,18 @@
 		 	});
 		};
 
-		 function updatePhone(phone) {
+		function updatePhone(phone) {
 		 	return $http.put('/phones/'+ $routeParams.phoneId + '.json', phone).then(function (data) {
 		 		var box = self.data.phones;
-		 		var index = box.indexOf(self.data.phone);
-		 		console.log(index);
-		 		console.log(self.data.phone);
+		 		var thisPhone = self.data.phone;
+		 		var index = box.map(function(x) {return x.id; }).indexOf(thisPhone.id);
+				var objectFound = box[index];
+		
+		 		box[index] = self.data.phone;
+
+		 		return box[index];
+
+		 		// console.log(index);
 
 		 		// self.data.phone = data.data;
 		 	});

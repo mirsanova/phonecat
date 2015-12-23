@@ -6,8 +6,8 @@ angular
 
 config.$inject = ['$routeProvider', '$locationProvider'];
 
-function config($routeProvide, $locationProvider){
-  $routeProvide
+function config($routeProvider, $locationProvider){
+  $routeProvider
     .when('/',{
       templateUrl:'/templates/home.html',
       controller:'PhoneListCtrl'
@@ -35,4 +35,9 @@ function config($routeProvide, $locationProvider){
     .otherwise({
       redirectTo: '/'
     });
+
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 }

@@ -9,6 +9,7 @@
   PhoneListCtrl.$inject = ['$scope','Phones'];   
 
   function PhoneListCtrl($scope, Phones) {
+  	console.log('Контроллер все телефоны');
   	Phones.setPhones();
   	$scope.phones = Phones.getPhones();
 
