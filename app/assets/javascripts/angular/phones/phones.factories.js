@@ -12,32 +12,25 @@
 		self.data = {
 			phones: []
 		};
-		// self.current = null;
 
 		function setPhones(){
-			var deferred = $q.defer();
-
 			$http.get('/phones.json').then(function(response){
 				self.data.phones = response.data;
-				deferred.resolve(response);
 			});
-			return deferred.promise;
 		}
 
 		function getPhones(){
-			console.log(self.data.phones);
 			return self.data;
 		}
 
 		function setPhone(){
-			var deferred = $q.defer();
+			//var deferred = $q.defer();
 
-			$http.get('/phones/' + $routeParams.phoneId + '.json').then(function(response){
+			var source = $http.get('/phones/' + $routeParams.phoneId + '.json').then(function(response){
 				self.data.phone = response.data;
-				deferred.resolve(response);
+				// deferred.resolve(response);
 			});			
-
-			return deferred.promise;
+			return source;
 		}
 
 		function getPhone(){
@@ -51,8 +44,13 @@
 		};
 
 		 function updatePhone(phone) {
-		 	$http.put('/phones/'+ $routeParams.phoneId + '.json', phone).then(function (data) {
-		 		self.data.phone = data.data;
+		 	return $http.put('/phones/'+ $routeParams.phoneId + '.json', phone).then(function (data) {
+		 		var box = self.data.phones;
+		 		var index = box.indexOf(self.data.phone);
+		 		console.log(index);
+		 		console.log(self.data.phone);
+
+		 		// self.data.phone = data.data;
 		 	});
 		};
 

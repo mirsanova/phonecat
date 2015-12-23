@@ -10,15 +10,15 @@
 
   function PhoneEditCtrl($scope, $resource, $location, Phones, $routeParams) {
 
-  	Phones.setPhone().then(function(response) {
-      $scope.phones = Phones.getPhone();
+  	Phones.setPhone().then(function() {
+      $scope.phone = Phones.getPhone();
     }, null);
-    // Phones.setPhone();
+
     $scope.update = function(){    	
       if ($scope.phoneForm.$valid){
-              
-      	Phones.updatePhone($scope.phones);
         $location.path('/');
+      	Phones.updatePhone({phone: $scope.phone});
+        
       }
     }; 
   }

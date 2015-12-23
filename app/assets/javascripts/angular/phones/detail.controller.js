@@ -10,7 +10,7 @@
   function PhoneDetailCtrl($scope, Phones, $routeParams) {
        
   	Phones.setPhone().then(function(response) {
-      $scope.phones = Phones.getPhone();
+      $scope.phone = Phones.getPhone();
     }, null);
   }
 
