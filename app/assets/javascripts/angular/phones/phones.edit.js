@@ -14,12 +14,12 @@
       $scope.phone = Phones.getPhone();
     }, null);
 
-    $scope.update = function(){    	
-      if ($scope.phoneForm.$valid){        
+    $scope.update = function(){
+
+      if ($scope.phoneForm.$valid){
       	Phones.updatePhone({phone: $scope.phone}).then(function() {
           $location.path('/');
-        }, null);;
-        
+        }, null);
       }
     }; 
   }

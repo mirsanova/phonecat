@@ -41,12 +41,35 @@
 
 			return self.data.phone;
 		}
+
+        function setPhoneForUpdate(phone) {
+            self.data.phone = phone;
+        }
    	
    	function addPhone(phone) {
 		 	$http.post('/phones.json', phone).then(function (data) {
 		 		self.data.phone = data.data;
 		 	});
 		};
+
+        function phoneUpdateStatus(phone) {
+            return $http.put('/phones/'+ phone.id + '.json', phone).then(function (data) {
+
+                var box = self.data.phones;
+                var thisPhone = self.data.phone;
+                console.log(thisPhone);
+                var index = box.map(function(x) {return x.id; }).indexOf(thisPhone.id);
+                var objectFound = box[index];
+
+                box[index] = self.data.phone;
+
+                return box[index];
+
+                // console.log(index);
+
+                // self.data.phone = data.data;
+            });
+        };
 
 		function updatePhone(phone) {
 		 	return $http.put('/phones/'+ $routeParams.phoneId + '.json', phone).then(function (data) {
@@ -84,7 +107,9 @@
 			setPhone: setPhone,
 			addPhone: addPhone,
 			updatePhone: updatePhone,
-			deletePhone: deletePhone
+			deletePhone: deletePhone,
+            phoneUpdateStatus: phoneUpdateStatus,
+            setPhoneForUpdate: setPhoneForUpdate
 		}									
 	}
 })(window.angular);
