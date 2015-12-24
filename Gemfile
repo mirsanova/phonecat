@@ -27,6 +27,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_helper'
 gem 'font-awesome-sass'
 gem 'responders'
+gem 'carrierwave'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
