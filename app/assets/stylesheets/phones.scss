@@ -157,12 +157,11 @@ input[type=checkbox]
   top: 6px;
   left: 18px;     
 }
-.btn-dropdown{
-  margin-bottom: 0;
-  padding: 1px 5px;
+.dropdown{
+  border-radius: 4px;
+  padding-left: 2px; 
 }
-.dropdown-list > li > a{
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
+option:not(:checked) { 
+  background-color: white;
+  color: black; 
 }
