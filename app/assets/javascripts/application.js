@@ -13,5 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-file-upload
 //= require bootstrap
 //= require_tree .
