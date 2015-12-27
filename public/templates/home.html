@@ -11,16 +11,16 @@
 			<div class="col-xs-12 col-sm-6 col-lg-4 item" ng-repeat="phone in phones.phones | filter: search">
 				<div id="phone-box" class="phone-box" just-remove>
 					<a href="/phones/edit/{{phone.id}}"><i class="fa fa-pencil"></i></a>
-					 <!-- <div class="preview-img text-center">
-						 <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/> -->
+					 <div class="preview-img text-center">
+						 <img ng-src="{{phone.attachments.first.file.url}}" alt="{{phone.name}}"/>
 					<select ng-model="phone.status"
 							ng-change="update(phone)"
 							ng-options="phoneStatusOptions(status) for status in [true, false]"
 							ng-class="{'btn-success':phone.status, 'btn-warning': !phone.status}"></select>
-					<!-- </div> -->
-					<div class="preview-img text-center">
-						<img src="/assets/phones/dell-streak-7.0.jpg" alt="{{phone.name}}"/>
-					</div>
+					 </div>
+					<!--<div class="preview-img text-center">-->
+						<!--<img src="/assets/phones/dell-streak-7.0.jpg" alt="{{phone.name}}"/>-->
+					<!--</div>-->
 						<h2>{{phone.name}}</h2>
 						<p>{{phone.description}}</p>					
 					<p><a class="btn btn-default" href="/phones/{{phone.id}}" role="button">View details &raquo;</a></p>

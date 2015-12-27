@@ -1,5 +1,5 @@
 class PhonesController < ApplicationController
-	before_action :get_phone, except: [:index, :create, :new]
+	before_action :get_phone, except: [:index, :create]
 	respond_to :html, :json
 
 	def index
@@ -11,13 +11,15 @@ class PhonesController < ApplicationController
   
   end
 
-  def new
-  	@phone = Phone.new
-    @phone.attachments.build
-  end
+  # def new
+  # 	@phone = Phone.new
+  #   @phone.attachments.build
+  # end
 
   def create
+    byebug
     @phone = Phone.new(phone_params)
+
     if @phone.save
       render json: @phone.as_json, status: :ok
     else

@@ -5,7 +5,8 @@
 	angular
 		.module('phonecatApp', [
 			'ngRoute', 
-			'ngResource'
+			'ngResource',
+            'angularFileUpload'
 		]);
 		
 })();

@@ -29,6 +29,7 @@ gem 'font-awesome-sass'
 gem 'responders'
 gem 'carrierwave'
 gem 'remotipart'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,6 +45,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
