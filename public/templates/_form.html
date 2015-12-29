@@ -20,14 +20,18 @@
     <p ng-show=" submitted && phoneForm.characteristic.$invalid" class="help-block">Данное поле обязательно для заполнения</p>   
 </div>
 <div class="form-group">
-    <label class="control-label col-md-3">Наличие товара <span class="required">* </span></label>
+    <label class="control-label col-md-3">Наличие товара </label>
     <div class="col-md-3">
         <input type="checkbox" name="status" ng-model="phone.status" />
     </div>
 </div>
-
-<div class="form-group">
-    <input type="file" nv-file-select uploader="uploader" multiple  /><br/>
+<div class="form-group"> 
+<!-- <div class="form-group" ng-class="{'has-error' : submitted && files.length}">  -->
+    <label class="control-label col-md-3">Загрузите изображение <span class="required">* </span></label>
+    <div class="col-md-3">
+        <input type="file" nv-file-select uploader="uploader" multiple  /><br/>
+    </div>
+   <!--  <p ng-show=" submitted && files.length" class="help-block">Загрузите изображение</p> -->
     <ul>
         <li ng-repeat="item in uploader.queue">
             Name: <span  ng-bind="item.file.name"></span><br/>

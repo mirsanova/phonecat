@@ -42,6 +42,7 @@
    	function addPhone(phone) {
 		 	$http.post('/phones.json', phone).then(function (data) {
 		 		self.data.phone = data.data;
+		 		
 		 	});
 		};
 
