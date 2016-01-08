@@ -1,5 +1,5 @@
 class Phone < ActiveRecord::Base
-	validates :name, :description,  presence: true
+	validates :name, :description, :attachments, presence: true
 	has_one :detail, dependent: :destroy
 	has_many :attachments, as: :attachmentable
 

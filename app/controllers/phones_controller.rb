@@ -1,5 +1,5 @@
 class PhonesController < ApplicationController
-	before_action :get_phone, except: [:index, :create]
+	before_action :get_phone, except: [:index, :create, :new]
 	respond_to :html, :json
 
 	def index
@@ -12,10 +12,9 @@ class PhonesController < ApplicationController
   
   end
 
-  # def new
-  # 	@phone = Phone.new
-  #   @phone.attachments.build
-  # end
+  def new
+
+  end
 
   def create
     # byebug

@@ -37,7 +37,6 @@
           // console.log("jkhkjhkj");
           $scope.uploader.uploadAll();
 			  	$location.path('/');
-          $scope.uploader.uploadAll();
 			   // Phones.addPhone({phone: $scope.phone});
 			  }
 		  }	  
