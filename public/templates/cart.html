@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Товар</th>
+        <th>Описание</th>
+        <th>Наличие</th>
+        <th>Количество</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="(key, value) in items">
+        <td>{{value.item.name}}</td>
+        <td>{{value.item.description}}</td>
+        <td>{{value.item.status ? 'есть в наличии' : 'под заказ'}}</td>
+        <td>{{value.count}}</td>
+        <!--<td>-->
+            <!--<button ng-click="remove($index)" class="btn btn-default">Remove</button>-->
+        <!--</td>-->
+    </tr>
+    {{totalCount}}
+    </tbody>
+</table>

@@ -16,6 +16,10 @@ function config($routeProvider, $locationProvider){
       templateUrl:'/templates/about.html',
       controller:'AboutCtrl'
     })
+    .when('/cart',{
+      templateUrl:'/templates/cart.html',
+      controller:'CartOrder'
+    })
     .when('/contact',{
       templateUrl:'/templates/contact.html',
       controller:'ContactCtrl'

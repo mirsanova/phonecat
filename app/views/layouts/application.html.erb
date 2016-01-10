@@ -26,8 +26,10 @@
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>        
       </ul>
-      <div class="shopping-cart">
-        <i class="fa fa-shopping-cart fa-2x"> <span class="count">0</span></i>
+      <div ng-controller="CartCtrl" class="shopping-cart" >
+        <a href="/cart">
+            <i class="fa fa-shopping-cart fa-2x"> <span class="count">{{totalCount}}</span></i>
+        </a>
       </div>      
     </div>   
   </div>
