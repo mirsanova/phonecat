@@ -8,19 +8,17 @@
     function cartService() {
         var callbacks = [];
         var items = [];
-        var a = [];
         var flag = true;
 
-        var addItemToCart = function(item) {
+        this.addItemToCart = function(item) {
 
-            items.push(item);
-            var it = {item: item, count: 1};
+            var itemHash = {item: item, count: 1};
 
-            for (var i = 0; i < a.length; i++){
+            for (var i = 0; i < items.length; i++){
                 flag = true;
 
-                if (a[i].item.id === item.id){
-                    a[i].count++;
+                if (items[i].item.id === item.id){
+                    items[i].count++;
                     flag = false;
                     break;
                 }
@@ -28,39 +26,34 @@
             }
 
             if (flag === true){
-                a.push(it);
+                items.push(itemHash);
             }
 
             //notify if there are any listeners
-            for (var i = 0; i < callbacks.length; i++)
-                callbacks[i](a);
-        }
 
+            for (var i = 0; i < callbacks.length; i++)
+                callbacks[i](items);
+        }
+        
         //register listener
-        var onItemsAdded = function(callback) {
+    
+        this.onItemsAdded = function(callback) {
             callbacks.push(callback);
         }
 
 
-        var getItems = function() {
-            return a;
+        this.getItems = function() {
+            return items;
         }
 
-        var getItemsCount = function() {
+        this.getItemsCount = function() {
             var totalCount = 0;
 
-            for (var i=0; i < a.length; i++) {
-                totalCount += a[i].count;
+            for (var i=0; i < items.length; i++) {
+                totalCount += items[i].count;
             }
             return totalCount;
         }
 
-
-        return {
-            onItemsAdded: onItemsAdded,
-            addItemToCart: addItemToCart,
-            getItems: getItems,
-            getItemsCount: getItemsCount
-        }
     }
 })(window.angular);

@@ -11,11 +11,11 @@
         $scope.totalCount=0;
 
         //subscribe items added callback
-        cartService.onItemsAdded(function(a){
+        cartService.onItemsAdded(function(items){
             $scope.totalCount=0;
 
-            for (var i=0; i < a.length; i++) {
-                $scope.totalCount += a[i].count;
+            for (var i=0; i < items.length; i++) {
+                $scope.totalCount += items[i].count;
             }
         });
     }
